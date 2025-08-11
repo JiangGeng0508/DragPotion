@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpk21ki45nh7i"]
+[gd_scene load_steps=5 format=3 uid="uid://bpk21ki45nh7i"]
 
 [ext_resource type="Script" uid="uid://b5nhrm5hnpwwl" path="res://Summon.cs" id="1_5opn1"]
 [ext_resource type="Texture2D" uid="uid://che0tx1bm8fx0" path="res://Assets/Herb/1.png" id="2_78yke"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_5opn1"]
+action = &"Summon"
+
+[sub_resource type="Shortcut" id="Shortcut_78yke"]
+events = [SubResource("InputEventAction_5opn1")]
 
 [node name="Summon" type="Node2D"]
 script = ExtResource("1_5opn1")
@@ -22,6 +28,7 @@ grow_vertical = 0
 [node name="Button" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+shortcut = SubResource("Shortcut_78yke")
 icon = ExtResource("2_78yke")
 expand_icon = true
 
@@ -34,3 +41,4 @@ alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="SummonItem"]
 [connection signal="text_changed" from="VBoxContainer/LineEdit" to="." method="OnLineEditChanged"]
+[connection signal="text_submitted" from="VBoxContainer/LineEdit" to="." method="OnEditSubmit"]

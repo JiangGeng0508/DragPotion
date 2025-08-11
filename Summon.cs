@@ -13,7 +13,7 @@ public partial class Summon : Node2D
 	public void SummonItem()
 	{
 		var id = lineEdit.Text.ToInt();
-		var node = GD.Load<PackedScene>($"res://Scenes/Herbs/{id}.tscn").Instantiate();
+		var node = GD.Load<PackedScene>($"res://Scenes/Herbs/Herb{id}.tscn").Instantiate();
 		AddChild(node);
 	}
 	public void OnLineEditChanged(string text)
@@ -27,4 +27,5 @@ public partial class Summon : Node2D
 			}
 		}
 	}
+	public void OnEditSubmit(string text) => SummonItem();
 }
