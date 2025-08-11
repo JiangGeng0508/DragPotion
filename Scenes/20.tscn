@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwcdaneam1ahl"]
+
+[ext_resource type="PackedScene" uid="uid://c2m8aroonr8dw" path="res://draggable_item.tscn" id="1_fwjdy"]
+[ext_resource type="Texture2D" uid="uid://rd53jwxtxjgf" path="res://Assets/Herb/20.png" id="2_0587m"]
+
+[node name="DraggableItem" instance=ExtResource("1_fwjdy")]
+HerbIndex = 20
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_0587m")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-15, 14.5, 6, 14, 11.5, 7, 14, -9.5, 4, -28.5, -14.5, -18, -21, 2)
