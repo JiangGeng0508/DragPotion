@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://doyra6ej4witm"]
 
-[ext_resource type="PackedScene" uid="uid://c2m8aroonr8dw" path="res://draggable_item.tscn" id="1_1rg46"]
-[ext_resource type="Texture2D" uid="uid://che0tx1bm8fx0" path="res://Assets/Herb/1.png" id="2_6aodu"]
+[ext_resource type="PackedScene" uid="uid://c2m8aroonr8dw" path="res://draggable_item.tscn" id="1_xifn3"]
+[ext_resource type="Texture2D" uid="uid://che0tx1bm8fx0" path="res://Assets/Herb/1.png" id="2_b85c3"]
 
-[node name="DraggableItem" instance=ExtResource("1_1rg46")]
+[node name="DraggableItem" instance=ExtResource("1_xifn3")]
 HerbIndex = 1
 
 [node name="Sprite" parent="." index="0"]
-texture = ExtResource("2_6aodu")
+texture = ExtResource("2_b85c3")
 
 [node name="CollisionPolygon2D" parent="." index="1"]
 polygon = PackedVector2Array(-17, 11.5, -18, 9, -18.5, -6, -17, -11.5, -8, -18.5, 9, -24.5, 11.5, -23.5, 12, -8.5, 5, -1.5, -5, 2.5, -15.5, 11.5)
