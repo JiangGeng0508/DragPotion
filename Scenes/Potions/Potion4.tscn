@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://3fspmgbk02ct"]
+
+[ext_resource type="PackedScene" uid="uid://c2m8aroonr8dw" path="res://draggable_item.tscn" id="1_swvf7"]
+[ext_resource type="Texture2D" uid="uid://dldk6ag4bri7y" path="res://Assets/Potions/Icon4.png" id="2_4e8n6"]
+
+[node name="Potion" instance=ExtResource("1_swvf7")]
+ItemType = 0
+Index = 4
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_4e8n6")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+position = Vector2(3, 13)
+polygon = PackedVector2Array(-7.5, 23.5, -11.5, 21.5, -15.5, 17.5, -15.5, 9.5, -7.5, -6.5, -7.5, -24.5, -9.5, -26.5, -9.5, -28.5, -5.5, -32.5, -5.5, -34.5, -3.5, -36.5, 2.5, -36.5, 4.5, -34.5, 4.5, -32.5, 8.5, -28.5, 8.5, -26.5, 6.5, -24.5, 6.5, -6.5, 14.5, 9.5, 14.5, 17.5, 10.5, 21.5, 6.5, 23.5)

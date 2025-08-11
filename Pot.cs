@@ -7,7 +7,7 @@ public partial class Pot : Node2D
 	{
 		if (node is DraggableItem item)
 		{
-			GD.Print($"item {item.HerbIndex} entered pot");
+			GD.Print($"{item.ItemType} {item.Index} entered pot");
 		}
 	}
 }

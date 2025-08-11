@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgyeoga4upo7f"]
+[gd_scene load_steps=10 format=3 uid="uid://cgyeoga4upo7f"]
 
 [ext_resource type="Texture2D" uid="uid://b7e2s6rhianec" path="res://Assets/bg.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://doyra6ej4witm" path="res://Scenes/Herbs/Herb1.tscn" id="2_0xm2m"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c821nm4i1h8yw" path="res://Scenes/Herbs/Herb3.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bpk21ki45nh7i" path="res://summon.tscn" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://vc6co6gvcadp" path="res://Camera2d.cs" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://blwrv6eucj04q" path="res://Scenes/Potions/Potion1.tscn" id="8_5vw27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(512, 64)
@@ -156,3 +157,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 100.0
 script = ExtResource("7_272bh")
 speed = 1000.0
+
+[node name="Potion" parent="Camera2D" instance=ExtResource("8_5vw27")]
+position = Vector2(-56.3683, -119.765)

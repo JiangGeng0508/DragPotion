@@ -4,7 +4,9 @@ using System;
 public partial class DraggableItem : RigidBody2D
 {
 	[Export]
-	public int HerbIndex { get; set; } = 0;
+	public ItemTypeEnum ItemType { get; set; } = ItemTypeEnum.Herb;
+	[Export]
+	public int Index { get; set; } = 0;
 	public Line2D DragLine { get; set; }
 	public bool IsDragging { get; set; } = false;
 	public Vector2 DragStartPosition { get; set; }
@@ -52,4 +54,9 @@ public partial class DraggableItem : RigidBody2D
 			}
 		}
 	}
+}
+public enum ItemTypeEnum
+{
+	Potion,
+	Herb,
 }

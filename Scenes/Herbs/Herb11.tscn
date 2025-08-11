@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bb0fe4s71g545" path="res://Assets/Herb/11.png" id="2_tkgct"]
 
 [node name="DraggableItem" instance=ExtResource("1_wkvlf")]
-HerbIndex = 11
+Index = 11
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_tkgct")
