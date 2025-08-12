@@ -3,16 +3,18 @@ using System;
 
 public partial class DraggableItem : RigidBody2D
 {
-	[Export]
-	public ItemTypeEnum ItemType { get; set; } = ItemTypeEnum.Herb;
-	[Export]
-	public int Index { get; set; } = 0;
 	public Line2D DragLine { get; set; }
 	public bool IsDragging { get; set; } = false;
 	public Vector2 DragStartPosition { get; set; }
+	public Texture2D Icon { get; set; }
 	public override void _Ready()
 	{
 		DragLine = GetNode<Line2D>("DragLine");
+
+		if (Icon != null)
+		{
+			GetNode<Sprite2D>("Icon").Texture = Icon;
+		}
 	}
 	public override void _PhysicsProcess(double delta)
 	{
@@ -54,9 +56,4 @@ public partial class DraggableItem : RigidBody2D
 			}
 		}
 	}
-}
-public enum ItemTypeEnum
-{
-	Potion,
-	Herb,
 }

@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System.Collections.Generic;
 
 public partial class Pot : Node2D
@@ -26,38 +27,34 @@ public partial class Pot : Node2D
 
 	public void OnBodyEntered(Node2D node)
 	{
-		if (node is DraggableItem item)
+		if (node is Herb herb)
 		{
-			if (item.ItemType == ItemTypeEnum.Herb)
-			{
-				Herbs[item.Index]++;
-				nodes.Add(item);
-				UpdateLabel();
-			}
+			Herbs[herb.Index]++;
+			nodes.Add(herb);
+			UpdateLabel();
 		}
 	}
 	public void OnBodyExited(Node2D node)
 	{
-		if (node is DraggableItem item)
+		if (node is Herb herb)
 		{
-			if (item.ItemType == ItemTypeEnum.Herb)
-			{
-				Herbs[item.Index]--;
-				nodes.Remove(item);
-				UpdateLabel();
-			}
+			Herbs[herb.Index]--;
+			nodes.Remove(herb);
+			UpdateLabel();
+			
 		}
 	}
 	public void OnCheckButtonPressed()
 	{
-		var testRecipe = new HerbPotionRecipe([1, 2, 3], 2);
-		
-		foreach (var node in nodes)
+		var testRecipe = new HerbPotionRecipe([new(1, 2)], 2);
+		foreach (var ingredient in testRecipe.Ingredients)
 		{
-			node.QueueFree();
+			if (Herbs[ingredient.X] != ingredient.Y) return;
 		}
-		// Herbs.Clear();
-		// nodes.Clear();
+		foreach (var node in nodes)
+			{
+				node.QueueFree();
+			}
 		UpdateLabel();
 		var potion = GD.Load<PackedScene>($"res://Scenes/Potions/Potion{testRecipe.PotionIndex}.tscn").Instantiate<DraggableItem>();
 		AddChild(potion);
@@ -68,12 +65,9 @@ public partial class Pot : Node2D
 		foreach (var herbIndex in Herbs)
 		{
 			herbString += $"{herbIndex}, ";
+			if (herbIndex % 8 == 7)
+				herbString += "\n";
 		}
 		herbsLabel.Text = herbString;
 	}
-}
-public class HerbPotionRecipe(List<int> herbs, int potionIndex)
-{
-	public List<int> Herbs = herbs;
-	public int PotionIndex = potionIndex;
 }

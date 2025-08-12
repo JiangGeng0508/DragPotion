@@ -21,7 +21,7 @@ public partial class Summon : Node2D
 		if (text.Length > 0)
 		{
 			var id = text.ToInt();
-			if (id > 0 && id < 25)
+			if (id > 0 && id < 7)
 			{
 				button.Icon = GD.Load<Texture2D>($"res://Assets/Herb/{id}.png");
 			}

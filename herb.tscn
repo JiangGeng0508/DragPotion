@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://2ji1r1hckw5t"]
+
+[ext_resource type="PackedScene" uid="uid://c2m8aroonr8dw" path="res://draggable_item.tscn" id="1_wci8b"]
+[ext_resource type="Script" uid="uid://b7dnj383b7dnb" path="res://Herb.cs" id="2_pa2er"]
+
+[node name="Herb" instance=ExtResource("1_wci8b")]
+script = ExtResource("2_pa2er")
+Index = 0
