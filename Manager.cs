@@ -17,30 +17,14 @@ public partial class Manager : Node
 		using var dir = DirAccess.Open(RecipesDirPath);
 		foreach (var file in dir.GetFiles())
 		{
-			if (file.GetExtension() == "json")
+			switch (file.GetExtension())
 			{
-				using var fileA = FileAccess.Open(RecipesDirPath + file, FileAccess.ModeFlags.Read);
-				var jsonString = fileA.GetAsText();
-				var json = new Json();
-				var err = json.Parse(jsonString);
-				if (err != Error.Ok)
-				{
-					GD.Print("Error parsing JSON: " + err);
+				case "tres":
+					var recipe1 = ResourceLoader.Load<HerbPotionRecipe>(RecipesDirPath + file);
+					Recipes.Add(recipe1);
+					break;
+				default:
 					continue;
-				}
-				var data = new Dictionary<int, int>((Dictionary)json.Data);
-				data.TryGetValue(0, out var potion);
-				GD.Print("Potion: " + potion);
-				var herbs = new Array<Vector2I>();
-				foreach (var key in data.Keys)
-				{
-					if (key == 0) continue;
-					if (!data.TryGetValue(key, out var value)) continue;
-					GD.Print("Herb: " + key + " x " + value);
-					herbs.Add(new Vector2I(key, value));
-				}
-				var recipe = new HerbPotionRecipe(herbs, potion);
-				Recipes.Add(recipe);
 			}
 		}
 	}

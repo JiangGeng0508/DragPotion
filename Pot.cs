@@ -33,9 +33,11 @@ public partial class Pot : Node2D
 	public void OnCheckButtonPressed()
 	{
 		var recipes = Global.Manager.Recipes;
+		GD.Print($"Having {recipes.Count} recipes");
 		int index = 0;
 		foreach (var recipe in recipes)
 		{
+			GD.Print(recipe.Ingredients.ToString() + " => " + recipe.PotionIndex);
 			index = recipe.PotionIndex;
 			foreach (var ingredient in recipe.Ingredients)
 			{
@@ -47,7 +49,11 @@ public partial class Pot : Node2D
 			}
 			if (index != 0) break;
 		}
-		if (index == 0) return;
+		if (index == 0)
+		{
+			GD.Print("No matching recipe found");
+			return;
+		}
 		foreach (var node in nodes)
 		{
 			node.QueueFree();

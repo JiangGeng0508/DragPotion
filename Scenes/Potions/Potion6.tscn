@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn1t2m4lktxbe"]
+
+[ext_resource type="PackedScene" uid="uid://rysl6cofp6s8" path="res://potion.tscn" id="1_nkf1t"]
+[ext_resource type="Texture2D" uid="uid://bc0b6mqne7373" path="res://Assets/Potions/Icon6.png" id="2_sswto"]
+
+[node name="Potion" instance=ExtResource("1_nkf1t")]
+
+[node name="Icon" parent="." index="0"]
+texture = ExtResource("2_sswto")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-5.5, -36.5, 0.5, -36.5, 2.5, -34.5, 2.5, -32.5, 6.5, -28.5, 6.5, -26.5, 4.5, -24.5, 4.5, -22.5, 6.5, -14.5, 10.5, -4.5, 10.5, -2.5, 8.5, 1.5, 6.5, 7.5, 4.5, 13.5, 0.5, 21.5, -1.5, 23.5, -3.5, 23.5, -5.5, 21.5, -9.5, 13.5, -11.5, 7.5, -13.5, 1.5, -15.5, -2.5, -15.5, -4.5, -11.5, -14.5, -9.5, -22.5, -9.5, -24.5, -11.5, -26.5, -11.5, -28.5, -7.5, -32.5, -7.5, -34.5)

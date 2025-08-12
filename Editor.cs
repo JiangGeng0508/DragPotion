@@ -39,18 +39,6 @@ public partial class Editor : Control
 		}
 		var result = GetNode<ItemVector>("Result").ItemCount;
 		var recipe = new HerbPotionRecipe(ingredient, result.X);
-		ResourceSaver.Save(CastRecipeToJSON(recipe), RecipesDirPath + "Recipe.json");
-	}
-	public Json CastRecipeToJSON(HerbPotionRecipe recipe)
-	{
-		var json = new Json();
-		var data = new Dictionary<int,int>();
-		data[0] = recipe.PotionIndex;
-		foreach (var item in recipe.Ingredients)
-		{
-			data[item.X] = item.Y;
-		}
-		json.Data = data;
-		return json;
+		ResourceSaver.Save(recipe, RecipesDirPath + "Recipe" + recipe.PotionIndex + ".tres");
 	}
 }

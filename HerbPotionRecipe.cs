@@ -12,4 +12,5 @@ public partial class HerbPotionRecipe : Resource
 		Ingredients = herbs;
 		PotionIndex = potionIndex;
 	}
+	public HerbPotionRecipe() { }
 }

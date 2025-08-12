@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="HerbPotionRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://HerbPotionRecipe.cs" id="1_g0w2m"]
+
+[resource]
+script = ExtResource("1_g0w2m")
+Ingredients = Array[Vector2i]([Vector2i(2, 1), Vector2i(4, 1)])
+PotionIndex = 4

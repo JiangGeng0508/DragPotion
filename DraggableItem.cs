@@ -24,9 +24,9 @@ public partial class DraggableItem : RigidBody2D
 			var force = (mousePosition - DragStartPosition).Rotated(Rotation);
 			force = force.Normalized() * MathF.Pow(force.Length(), 0.5f) * 1000f;
 			DragLine.Points = [DragStartPosition, mousePosition];
-			// ApplyForce(force, DragStartPosition);
 			ApplyCentralForce(force);
-			ApplyTorque(mousePosition.Angle());
+			ApplyForce(Vector2.Down.Rotated(-Rotation) * 1000f, -DragStartPosition * 5f);
+			ApplyForce(LinearVelocity * -1f, -DragStartPosition);
 		}
 	}
 	public void OnInputEvent(Node viewport, InputEvent @event, int ShapeIdx)
