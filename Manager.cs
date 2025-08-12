@@ -14,13 +14,30 @@ public partial class Manager : Node
 	}
 	public void ReadRecipesFile()
 	{
-		var dir = DirAccess.Open(RecipesDirPath);
+		using var dir = DirAccess.Open(RecipesDirPath);
 		foreach (var file in dir.GetFiles())
 		{
-			if (file.GetExtension() == "tres")
+			if (file.GetExtension() == "json")
 			{
-				GD.Print("Reading recipe file: "+ RecipesDirPath + file);
-				recipes.Add(ResourceLoader.Load<HerbPotionRecipe>(RecipesDirPath + file));
+				using var fileA = FileAccess.Open(RecipesDirPath + file, FileAccess.ModeFlags.Read);
+				var jsonString = fileA.GetAsText();
+				var json = new Json();
+				var err = json.Parse(jsonString);
+				if (err != Error.Ok)
+				{
+					GD.Print("Error parsing JSON: " + err);
+					continue;
+				}
+				var data = new Dictionary<int, int>((Dictionary)json.Data);
+				var potion = data[0];
+				var herbs = new Array<Vector2I>();
+				foreach (var key in data.Keys)
+				{
+					if (key == 0) continue;
+					herbs.Add(new Vector2I(key, data[key]));
+				}
+				var recipe = new HerbPotionRecipe(herbs, potion);
+				recipes.Add(recipe);
 			}
 		}
 	}

@@ -7,7 +7,7 @@ public partial class ItemVector : VBoxContainer
 	public string ItemType { get; set; } = "Herb";
 
 	public TextureRect Icon { get; set; }
-	public Vector2I ItemCount { get; set; } = new(0, 1);
+	public Vector2I ItemCount { get; set; } = new(1, 1);
 
 	public override void _Ready()
 	{

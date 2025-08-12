@@ -4,7 +4,7 @@ public static class Global
 {
 	public static Manager Manager;
 
-	public static void Save(Node node,string path)
+	public static void SaveNode(Node node,string path)
 	{
 		var scene = new PackedScene();
 		if (scene.Pack(node) == Error.Ok)

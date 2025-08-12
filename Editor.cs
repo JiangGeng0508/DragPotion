@@ -39,13 +39,18 @@ public partial class Editor : Control
 		}
 		var result = GetNode<ItemVector>("Result").ItemCount;
 		var recipe = new HerbPotionRecipe(ingredient, result.X);
-		var dirString = $"res://Assets/Recipes/Recipe{DirAccess.Open(RecipesDirPath).GetFiles().Length}.tres";
-		GD.Print($"Save recipe to {dirString}");
-		var error = ResourceSaver.Save(recipe, dirString);
-		if (error != Error.Ok)
-		{
-			GD.PrintErr($"Error saving recipe: {error}");
-		}
+		ResourceSaver.Save(CastRecipeToJSON(recipe), RecipesDirPath + "Recipe.json");
 	}
-	
+	public Json CastRecipeToJSON(HerbPotionRecipe recipe)
+	{
+		var json = new Json();
+		var data = new Dictionary<int,int>();
+		data[0] = recipe.PotionIndex;
+		foreach (var item in recipe.Ingredients)
+		{
+			data[item.X] = item.Y;
+		}
+		json.Data = data;
+		return json;
+	}
 }
