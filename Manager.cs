@@ -6,7 +6,7 @@ public partial class Manager : Node
 	public PackedScene herbScene = GD.Load<PackedScene>("res://herb.tscn");
 	public PackedScene potionScene = GD.Load<PackedScene>("res://potion.tscn");
 	public string RecipesDirPath = "res://Assets/Recipes/";
-	public Array<HerbPotionRecipe> Recipes = [];
+	public Array<HerbPotionRecipe> Recipes = [new([new(1,1)],1)];
 	public override void _Ready()
 	{
 		Global.Manager = this;
