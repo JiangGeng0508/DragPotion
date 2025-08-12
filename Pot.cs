@@ -10,19 +10,6 @@ public partial class Pot : Node2D
 	public override void _Ready()
 	{
 		herbsLabel = GetNode<Label>("HerbsLabel");
-		var herbString = "";
-		foreach (var herb in Herbs)
-		{
-			herbString += $"{herb}, ";
-		}
-		GD.Print(herbString);
-		Herbs.Initialize();
-		herbString = "";
-		foreach (var herb in Herbs)
-		{
-			herbString += $"{herb}, ";
-		}
-		GD.Print(herbString);
 	}
 
 	public void OnBodyEntered(Node2D node)

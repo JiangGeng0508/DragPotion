@@ -34,4 +34,9 @@ alignment = 1
 
 [node name="Count" type="SpinBox" parent="."]
 layout_mode = 2
+value = 1.0
+rounded = true
 alignment = 1
+
+[connection signal="value_changed" from="Herb" to="." method="OnHerbChanged"]
+[connection signal="value_changed" from="Count" to="." method="OnCountChanged"]

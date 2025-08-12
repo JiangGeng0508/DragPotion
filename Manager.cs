@@ -10,6 +10,7 @@ public partial class Manager : Node
 	public override void _Ready()
 	{
 		Global.Manager = this;
+		ReadRecipesFile();
 	}
 	public void ReadRecipesFile()
 	{
@@ -18,7 +19,7 @@ public partial class Manager : Node
 		{
 			if (file.GetExtension() == "tres")
 			{
-
+				GD.Print("Reading recipe file: " + file.GetBaseName());
 			}
 		}
 	}

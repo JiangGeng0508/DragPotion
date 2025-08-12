@@ -15,6 +15,10 @@ run/main_scene="uid://cgyeoga4upo7f"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Manager="*res://Manager.cs"
+
 [dotnet]
 
 project/assembly_name="PotionPotion"
