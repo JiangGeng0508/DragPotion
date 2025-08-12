@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2m8aroonr8dw"]
+
+[ext_resource type="Script" uid="uid://ccd2qx2qtd1oa" path="res://Scripts/DraggableItem.cs" id="1_ewj6r"]
+
+[node name="DraggableItem" type="RigidBody2D"]
+input_pickable = true
+script = ExtResource("1_ewj6r")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(7, 13)
+scale = Vector2(2, 2)
+
+[node name="DragLine" type="Line2D" parent="."]
+visible = false
+
+[connection signal="input_event" from="." to="." method="OnInputEvent"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://co5lu7gq2faxr"]
 
-[ext_resource type="PackedScene" uid="uid://2ji1r1hckw5t" path="res://herb.tscn" id="1_40je7"]
+[ext_resource type="PackedScene" uid="uid://2ji1r1hckw5t" path="res://Scenes/herb.tscn" id="1_40je7"]
 [ext_resource type="Texture2D" uid="uid://xwq254g2dm7n" path="res://Assets/Herb/6.png" id="2_bjoq1"]
 
 [node name="Herb" instance=ExtResource("1_40je7")]

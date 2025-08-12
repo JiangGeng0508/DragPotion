@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://wa8kwdh6ltk"]
+
+[ext_resource type="Script" uid="uid://ca6dvcgxt07y5" path="res://Scripts/Editor.cs" id="1_a7iym"]
+[ext_resource type="PackedScene" uid="uid://c6wqf07dmp261" path="res://Scenes/item_vector.tscn" id="2_7wlcy"]
+[ext_resource type="Texture2D" uid="uid://ck2v6b7j32kkc" path="res://Assets/Potions/Icon1.png" id="3_wkuwf"]
+
+[node name="Editor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a7iym")
+
+[node name="Menu" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Add" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Add"
+
+[node name="Remove" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Remove
+"
+
+[node name="Save" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Save"
+
+[node name="Vectors" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 63.0
+offset_right = 139.0
+offset_bottom = 229.0
+
+[node name="ItemVector" parent="Vectors" instance=ExtResource("2_7wlcy")]
+layout_mode = 2
+
+[node name="Result" parent="." instance=ExtResource("2_7wlcy")]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 255.0
+offset_right = 137.0
+offset_bottom = 421.0
+ItemType = "Potion"
+
+[node name="Icon" parent="Result/Bg" index="0"]
+texture = ExtResource("3_wkuwf")
+
+[connection signal="pressed" from="Menu/Add" to="." method="AddVector"]
+[connection signal="pressed" from="Menu/Remove" to="." method="RemoveVector"]
+[connection signal="pressed" from="Menu/Save" to="." method="SaveRecipe"]
+
+[editable path="Result"]

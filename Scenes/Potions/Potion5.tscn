@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dseissle2a8sl"]
 
-[ext_resource type="PackedScene" uid="uid://rysl6cofp6s8" path="res://potion.tscn" id="1_ull5b"]
+[ext_resource type="PackedScene" uid="uid://rysl6cofp6s8" path="res://Scenes/potion.tscn" id="1_ull5b"]
 [ext_resource type="Texture2D" uid="uid://c7nrlsrvvc8p0" path="res://Assets/Potions/Icon5.png" id="2_m7owx"]
 
 [node name="Potion" instance=ExtResource("1_ull5b")]
