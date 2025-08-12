@@ -4,28 +4,21 @@ using System;
 public partial class Summon : Node2D
 {
 	public Button button;
-	public LineEdit lineEdit;
+	public SpinBox spin;
 	public override void _Ready()
 	{
 		button = GetNode<Button>("VBoxContainer/Button");
-		lineEdit = GetNode<LineEdit>("VBoxContainer/LineEdit");
+		spin = GetNode<SpinBox>("VBoxContainer/SpinBox");
 	}
 	public void SummonItem()
 	{
-		var id = lineEdit.Text.ToInt();
+		var id = (int)spin.Value;
 		var node = GD.Load<PackedScene>($"res://Scenes/Herbs/Herb{id}.tscn").Instantiate();
 		AddChild(node);
 	}
-	public void OnLineEditChanged(string text)
+	public void OnSpinBoxValueChaged(float value)
 	{
-		if (text.Length > 0)
-		{
-			var id = text.ToInt();
-			if (id > 0 && id < 7)
-			{
-				button.Icon = GD.Load<Texture2D>($"res://Assets/Herb/{id}.png");
-			}
-		}
+		button.Icon = GD.Load<Texture2D>($"res://Assets/Herb/{value}.png");
 	}
 	public void OnEditSubmit(string text) => SummonItem();
 }

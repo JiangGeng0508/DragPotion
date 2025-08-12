@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public partial class Pot : Node2D
 {
 	public Label herbsLabel;
-	public int[] Herbs = new int[24];
+	public int[] Herbs = new int[7];
 	public List<DraggableItem> nodes = [];
 	public override void _Ready()
 	{
@@ -28,23 +28,22 @@ public partial class Pot : Node2D
 			Herbs[herb.Index]--;
 			nodes.Remove(herb);
 			UpdateLabel();
-			
 		}
 	}
 	public void OnCheckButtonPressed()
 	{
-		var testRecipe = new HerbPotionRecipe([new(1, 2)], 2);
-		foreach (var ingredient in testRecipe.Ingredients)
-		{
-			if (Herbs[ingredient.X] != ingredient.Y) return;
-		}
-		foreach (var node in nodes)
-			{
-				node.QueueFree();
-			}
-		UpdateLabel();
-		var potion = GD.Load<PackedScene>($"res://Scenes/Potions/Potion{testRecipe.PotionIndex}.tscn").Instantiate<DraggableItem>();
-		AddChild(potion);
+		// // var recipe = Global.Manager.
+		// foreach (var ingredient in testRecipe.Ingredients)
+		// {
+		// 	if (Herbs[ingredient.X] != ingredient.Y) return;
+		// }
+		// foreach (var node in nodes)
+		// 	{
+		// 		node.QueueFree();
+		// 	}
+		// UpdateLabel();
+		// var potion = GD.Load<PackedScene>($"res://Scenes/Potions/Potion{testRecipe.PotionIndex}.tscn").Instantiate<DraggableItem>();
+		// AddChild(potion);
 	}
 	public void UpdateLabel()
 	{

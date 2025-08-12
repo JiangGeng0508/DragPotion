@@ -1,7 +1,15 @@
 using Godot;
 using Godot.Collections;
-public partial class HerbPotionRecipe(Array<Vector2I> herbs, int potionIndex) : Resource
+[GlobalClass]
+public partial class HerbPotionRecipe : Resource
 {
-	public Array<Vector2I> Ingredients = herbs;
-	public int PotionIndex = potionIndex;
+	[Export]
+	public Array<Vector2I> Ingredients { get; set; }
+	[Export]
+	public int PotionIndex { get; set; }
+	public HerbPotionRecipe(Array<Vector2I> herbs, int potionIndex)
+	{
+		Ingredients = herbs;
+		PotionIndex = potionIndex;
+	}
 }

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6mmapcae0trn" path="res://Assets/Herb/2.png" id="2_beseo"]
 
 [node name="Herb" instance=ExtResource("1_76eu2")]
+Index = 2
 
 [node name="Icon" parent="." index="0"]
 texture = ExtResource("2_beseo")

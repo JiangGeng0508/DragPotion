@@ -41,7 +41,11 @@ public partial class Editor : Control
 		var recipe = new HerbPotionRecipe(ingredient, result.X);
 		var dirString = $"res://Assets/Recipes/Recipe{DirAccess.Open(RecipesDirPath).GetFiles().Length}.tres";
 		GD.Print($"Save recipe to {dirString}");
-		ResourceSaver.Save(recipe, dirString);
+		var error = ResourceSaver.Save(recipe, dirString);
+		if (error != Error.Ok)
+		{
+			GD.PrintErr($"Error saving recipe: {error}");
+		}
 	}
 	
 }

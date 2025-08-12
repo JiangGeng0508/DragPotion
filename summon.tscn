@@ -26,19 +26,20 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 shortcut = SubResource("Shortcut_78yke")
 icon = ExtResource("2_78yke")
 expand_icon = true
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-text = "1"
-placeholder_text = "HerbId"
+min_value = 1.0
+max_value = 6.0
+value = 1.0
+rounded = true
 alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="SummonItem"]
-[connection signal="text_changed" from="VBoxContainer/LineEdit" to="." method="OnLineEditChanged"]
-[connection signal="text_submitted" from="VBoxContainer/LineEdit" to="." method="OnEditSubmit"]
+[connection signal="value_changed" from="VBoxContainer/SpinBox" to="." method="OnSpinBoxValueChaged"]
