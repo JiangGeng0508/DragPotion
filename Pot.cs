@@ -32,18 +32,29 @@ public partial class Pot : Node2D
 	}
 	public void OnCheckButtonPressed()
 	{
-		// // var recipe = Global.Manager.
-		// foreach (var ingredient in testRecipe.Ingredients)
-		// {
-		// 	if (Herbs[ingredient.X] != ingredient.Y) return;
-		// }
-		// foreach (var node in nodes)
-		// 	{
-		// 		node.QueueFree();
-		// 	}
-		// UpdateLabel();
-		// var potion = GD.Load<PackedScene>($"res://Scenes/Potions/Potion{testRecipe.PotionIndex}.tscn").Instantiate<DraggableItem>();
-		// AddChild(potion);
+		var recipes = Global.Manager.Recipes;
+		int index = 0;
+		foreach (var recipe in recipes)
+		{
+			index = recipe.PotionIndex;
+			foreach (var ingredient in recipe.Ingredients)
+			{
+				if (Herbs[ingredient.X] != ingredient.Y)
+				{
+					index = 0;
+					break;
+				}
+			}
+			if (index != 0) break;
+		}
+		if (index == 0) return;
+		foreach (var node in nodes)
+		{
+			node.QueueFree();
+		}
+		UpdateLabel();
+		var potion = GD.Load<PackedScene>($"res://Scenes/Potions/Potion{index}.tscn").Instantiate<DraggableItem>();
+		AddChild(potion);
 	}
 	public void UpdateLabel()
 	{

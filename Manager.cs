@@ -6,7 +6,7 @@ public partial class Manager : Node
 	public PackedScene herbScene = GD.Load<PackedScene>("res://herb.tscn");
 	public PackedScene potionScene = GD.Load<PackedScene>("res://potion.tscn");
 	public string RecipesDirPath = "res://Assets/Recipes/";
-	public Array<HerbPotionRecipe> recipes = [];
+	public Array<HerbPotionRecipe> Recipes = [];
 	public override void _Ready()
 	{
 		Global.Manager = this;
@@ -29,15 +29,18 @@ public partial class Manager : Node
 					continue;
 				}
 				var data = new Dictionary<int, int>((Dictionary)json.Data);
-				var potion = data[0];
+				data.TryGetValue(0, out var potion);
+				GD.Print("Potion: " + potion);
 				var herbs = new Array<Vector2I>();
 				foreach (var key in data.Keys)
 				{
 					if (key == 0) continue;
-					herbs.Add(new Vector2I(key, data[key]));
+					if (!data.TryGetValue(key, out var value)) continue;
+					GD.Print("Herb: " + key + " x " + value);
+					herbs.Add(new Vector2I(key, value));
 				}
 				var recipe = new HerbPotionRecipe(herbs, potion);
-				recipes.Add(recipe);
+				Recipes.Add(recipe);
 			}
 		}
 	}
